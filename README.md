@@ -119,5 +119,6 @@ We will test your system by:
 - Keep your code clean and modular.
 - Commit frequently and include meaningful messages.
 - Upload your code to your personal private GitHub repository.
+- Feel free to look at other Lighthouse Avionics Organization repositories for potential example implementations.
 
 Good luck and have fun!

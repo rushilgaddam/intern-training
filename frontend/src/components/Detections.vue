@@ -1,23 +1,62 @@
 <template>
-  <div id = "app">
-    <h2>Object Detection</h2>
-    
-    <div>
-      <img :src="videoUrl" style = "width:640px; border: 2px solid #333"/>
-    </div>
+  <v-app dark>
+    <v-app-bar app color="indigo darken-4">
+      <v-app-bar-title class="text-h6">Object Detection Dashboard</v-app-bar-title>
+      <v-spacer></v-spacer>
+      <v-img src="/static/lighthouseavionics.png" class="logo" height="40" width="auto" />
+    </v-app-bar>
 
-    <div>
-      <h2>History</h2>
-      <p><strong>Total Frames:</strong>{{totalFrames }}</p>
-      <p><strong>Total People Detected:</strong>{{totalPeople }}</p>
-      <p><strong>Average People/Frame:</strong>{{ averagePeople }}</p>
-      <br>
-      <h2>Curent</h2>
-      <p><strong>Current Frames:</strong>{{currentFrames }}</p>
-      <p><strong>Current People:</strong>{{currentPeople }}</p>
-      <p><strong>Current Average People:</strong>{{ currentAverage }}</p>
-    </div>
-  </div>
+    <v-main>
+      <v-container fluid class="pa-6">
+        <v-row justify="center">
+          <v-col cols="12" md="8">
+            <v-card elevation="6" color="grey darken-3">
+              <v-card-title class="text-h5 text-white">Live Video Feed</v-card-title>
+              <v-card-text>
+                <v-img :src="videoUrl" max-width="100%" class="rounded-lg" contain />
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="12" md="6">
+            <v-card elevation="6" color="grey darken-3">
+              <v-card-title class="text-h6 text-white">History Stats</v-card-title>
+              <v-card-text>
+                <v-list dense>
+                  <v-list-item>
+                    <v-list-item-content>
+                      <v-list-item-title>Total Frames: {{ totalFrames }}</v-list-item-title>
+                      <v-list-item-title>Total People Detected: {{ totalPeople }}</v-list-item-title>
+                      <v-list-item-title>Average People/Frame: {{ averagePeople }}</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
+              </v-card-text>
+            </v-card>
+          </v-col>
+
+          <v-col cols="12" md="6">
+            <v-card elevation="6" color="grey darken-3">
+              <v-card-title class="text-h6 text-white">Current Stats</v-card-title>
+              <v-card-text>
+                <v-list dense>
+                  <v-list-item>
+                    <v-list-item-content>
+                      <v-list-item-title>Current Frames: {{ currentFrames }}</v-list-item-title>
+                      <v-list-item-title>Current People: {{ currentPeople }}</v-list-item-title>
+                      <v-list-item-title>Current Average People: {{ currentAverage }}</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
@@ -63,24 +102,14 @@ export default {
     this.initWebSocket()
   }
 }
-
 </script>
-<style>
-#app {
-  background-color: #1e3a8a; 
-  color: #e0f2fe; 
-  min-height: 100vh;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+
+<style scoped>
+.logo {
+  cursor: pointer;
 }
 
-h2 {
-  color: #93c5fd; 
-}
-
-p {
-  font-size: 16px;
+.v-card-title {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 </style>
-
-

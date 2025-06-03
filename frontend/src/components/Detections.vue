@@ -67,15 +67,15 @@ export default {
 </script>
 <style>
 #app {
-  background-color: #1e3a8a; /* deep blue */
-  color: #e0f2fe; /* light blue text */
+  background-color: #1e3a8a; 
+  color: #e0f2fe; 
   min-height: 100vh;
   padding: 20px;
   font-family: Arial, sans-serif;
 }
 
 h2 {
-  color: #93c5fd; /* lighter blue for headers */
+  color: #93c5fd; 
 }
 
 p {

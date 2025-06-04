@@ -1,10 +1,18 @@
 <template>
   <v-app dark>
     <v-app-bar app color="indigo darken-4">
-      <v-app-bar-title class="text-h6">Object Detection Dashboard</v-app-bar-title>
+      <v-app-bar-title class="text-h6">
+        <v-icon left class="mr-2">mdi-cctv</v-icon>
+        Object Detection Dashboard
+      </v-app-bar-title>
       <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>mdi-cog</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-account</v-icon>
+      </v-btn>
       <v-img src="/static/dist/static/lighthouseavionics.png" class="logo" height="40" width="auto" />
-
     </v-app-bar>
 
     <v-main>
@@ -12,11 +20,13 @@
         <v-row justify="center">
           <v-col cols="12" md="8">
             <v-card elevation="6" color="grey darken-3">
-              <v-card-title class="text-h5 text-white">Live Video Feed</v-card-title>
+              <v-card-title class="text-h5 text-white">
+                <v-icon left class="mr-2">mdi-video</v-icon>
+                Live Video Feed
+              </v-card-title>
               <v-card-text>
                 <img :src="videoUrl" style="max-width: 100%; border-radius: 8px;" alt="Live video stream" />
               </v-card-text>
-
             </v-card>
           </v-col>
         </v-row>
@@ -24,10 +34,14 @@
         <v-row>
           <v-col cols="12" md="6">
             <v-card elevation="6" color="grey darken-3">
-              <v-card-title class="text-h6 text-white">History Stats</v-card-title>
+              <v-card-title class="text-h6 text-white">
+                <v-icon left class="mr-2">mdi-history</v-icon>
+                History Stats
+              </v-card-title>
               <v-card-text>
                 <v-list dense>
                   <v-list-item>
+                    <v-list-item-icon><v-icon>mdi-counter</v-icon></v-list-item-icon>
                     <v-list-item-content>
                       <v-list-item-title>Total Frames: {{ totalFrames }}</v-list-item-title>
                       <v-list-item-title>Total People Detected: {{ totalPeople }}</v-list-item-title>
@@ -41,10 +55,14 @@
 
           <v-col cols="12" md="6">
             <v-card elevation="6" color="grey darken-3">
-              <v-card-title class="text-h6 text-white">Current Stats</v-card-title>
+              <v-card-title class="text-h6 text-white">
+                <v-icon left class="mr-2">mdi-chart-line</v-icon>
+                Current Stats
+              </v-card-title>
               <v-card-text>
                 <v-list dense>
                   <v-list-item>
+                    <v-list-item-icon><v-icon>mdi-camera</v-icon></v-list-item-icon>
                     <v-list-item-content>
                       <v-list-item-title>Current Frames: {{ currentFrames }}</v-list-item-title>
                       <v-list-item-title>Current People: {{ currentPeople }}</v-list-item-title>

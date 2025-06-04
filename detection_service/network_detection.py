@@ -4,9 +4,9 @@ import os
 
 PHONE_IP = '192.168.30.85'  
 SCAN_INTERVAL = 60
-base_dir = os.path.dirname(os.path.abspath(__file__))  # directory of the running script
+base_dir = os.path.dirname(os.path.abspath(__file__))  
 restreamer_path = os.path.join(base_dir, "..", "restreamer", "restreamer.py")
-restreamer_path = os.path.abspath(restreamer_path)  # normalize the path
+restreamer_path = os.path.abspath(restreamer_path)  
 restreamer_process = None
 
 def is_phone_connected():

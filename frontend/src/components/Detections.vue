@@ -3,7 +3,8 @@
     <v-app-bar app color="indigo darken-4">
       <v-app-bar-title class="text-h6">Object Detection Dashboard</v-app-bar-title>
       <v-spacer></v-spacer>
-      <v-img src="/static/lighthouseavionics.png" class="logo" height="40" width="auto" />
+      <v-img src="/static/dist/static/lighthouseavionics.png" class="logo" height="40" width="auto" />
+
     </v-app-bar>
 
     <v-main>

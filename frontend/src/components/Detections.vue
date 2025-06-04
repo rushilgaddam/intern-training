@@ -13,8 +13,9 @@
             <v-card elevation="6" color="grey darken-3">
               <v-card-title class="text-h5 text-white">Live Video Feed</v-card-title>
               <v-card-text>
-                <v-img :src="videoUrl" max-width="100%" class="rounded-lg" contain />
+                <img :src="videoUrl" style="max-width: 100%; border-radius: 8px;" alt="Live video stream" />
               </v-card-text>
+
             </v-card>
           </v-col>
         </v-row>
@@ -63,7 +64,7 @@
 export default {
   data () {
     return {
-      videoUrl: "http://localhost:5001/video_feed",
+      videoUrl: "http://192.168.30.86:5001/video_feed",
       totalFrames: 0,
       totalPeople: 0,
       averagePeople: 0,
@@ -75,7 +76,9 @@ export default {
   },
   methods: {
     initWebSocket () {
-      const ws = new WebSocket("ws://localhost:8000/ws/stats");
+      const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+      const ws = new WebSocket(protocol + window.location.host + '/ws/stats');
+
 
       ws.onopen = () => {
         console.log("WebSocket connection established")

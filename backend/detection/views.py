@@ -5,6 +5,7 @@ from .models import DetectionLog
 from django.forms.models import model_to_dict
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
+from django.views.generic import TemplateView
 
 current_total_people = 0
 current_total_frames = 0
@@ -50,3 +51,8 @@ def log_detection(request):
     )
 
     return Response({"status": "ok"})
+
+
+class FrontendAppView(TemplateView):
+    template_name = 'index.html'
+

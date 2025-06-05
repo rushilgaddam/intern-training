@@ -1,3 +1,23 @@
+# Instructions for using the code
+
+1 to install poetrym run - "curl -sSL https://install.python-poetry.org | python3" -
+
+2 add poetry to each path using terminal - export PATH="$HOME/.local/bin:$PATH"
+
+3 run "poetry install" to get the packages and virtual environment
+
+4 configure django settings in allowed hosts to allow your computer ip
+
+5 run migrations - "poetry run python manage.py migrate"
+
+6 run backend with daphne, if run with manage.py might have some errors with data transfer - "poetry run daphne -b 0.0.0.0 -p 8000 backend.asgi:application"
+
+
+
+
+
+
+
 # Intern Training Project – Lighthouse Avionics
 
 Welcome to your first independent engineering task. This project is designed to introduce you to a multi-component software system that integrates network scanning, video streaming, backend services, and a frontend interface – much like the systems we build at Lighthouse.

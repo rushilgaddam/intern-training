@@ -15,6 +15,24 @@
       <v-img src="/static/dist/static/lighthouseavionics.png" class="logo" height="40" width="auto" />
     </v-app-bar>
 
+    <v-row justify="center" class="mb-4">
+      <v-col cols="12" md="6">
+        <v-text-field
+          v-model="backendIp"
+          label="Enter Backend IP"
+          placeholder="192.168.30.86"
+          prepend-inner-icon="mdi-lan-connect"
+          outlined
+          dense
+          hide-details
+        ></v-text-field>
+      </v-col>
+      <v-col cols="12" md="2">
+        <v-btn color="primary" @click="setVideoUrl">Connect</v-btn>
+      </v-col>
+    </v-row>
+
+
     <v-main>
       <v-container fluid class="pa-6">
         <v-row justify="center">
@@ -83,17 +101,24 @@
 export default {
   data () {
     return {
-      videoUrl: "http://192.168.30.86:5001/video_feed",
+      backendIp: '',
+      videoUrl: "",
       totalFrames: 0,
       totalPeople: 0,
       averagePeople: 0,
       currentFrames: 0,
       currentPeople: 0,
       currentAverage: 0,
-      socket: null
+      socket: null,
     }
   },
   methods: {
+    setVideoUrl() {
+      if (this.backendIp) {
+        this.videoUrl = `http://${this.backendIp}:5001/video_feed`
+      }
+    },
+
     initWebSocket () {
       const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
       const ws = new WebSocket(protocol + window.location.host + '/ws/stats');
